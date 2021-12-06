@@ -1,0 +1,33 @@
+-Criar projeto
+-composer comando para criar laravel/laravel informa o tipo que ira criar apos o nome do projeto
+composer create-project laravel/laravel laravelstudy
+
+-rodar projeto
+php artisan serve
+
+-outra opção para criar o projeto, instala a depedencia
+composer  global require laravel/installer
+
+-comando
+laravel new {nome do projeto}
+
+-assim que criar o projeto precisa gerar o camando, ele inclui no arquivo envi um APP_KEY, cria um HASH
+php artisan key:generete
+
+- configurar arquivo envi, configurar bando de dados
+os dados do banco de dado configurado em envi é enviado para config/database.php
+no arquivo database.php é interessa alterar os dados
+            'charset' => 'utf8',
+            'collation' => 'utf8_general_ci',
+
+-O que é cada pasta
+->public* -> onde ficara aa pasta que renderezir para o usuariio
+->app* - dentro da pasta ficara o codigo principal
+->bootstrap - não é o framework bootstrap convencional, no laravel ele serve para sistema de iniciação 
+->config* - essa pasta é as configuração geral do sistema
+->database - aqui temos assuntos relacionado aos banco de dados
+->resources* - é uma pasta de recurso, contem o arquivo VIEW do projeto, vai colocar os JS, CSS etc.
+->routs* - espesificamente no arquivo web.php, nesta pasta fica as rotas do nosso site
+->storage - será usado muito pouco, se relaciona tambem ao banco de dados, você pode colocar tambem em app/public, você pode colocar os arquivo do usuario, fotos cadastrada pelo usuario como exemplo
+->teste - podera ser feitos teste unitarios etc
+->vendor - tera todas biblioteca como o NODEMODULES
