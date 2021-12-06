@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//isso pode ser subistituido pelo route::view quando desejams apenas carregar um view
+//Route::get('/teste', function () {
+    //pode colocar echo aqui tambem
+    //return view('teste');
+//});
+
+Route::view('/teste','teste');
+
+//redirecionamento automatico
+Route::redirect('/welcome','teste');

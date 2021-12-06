@@ -28,6 +28,10 @@ no arquivo database.php é interessa alterar os dados
 ->database - aqui temos assuntos relacionado aos banco de dados
 ->resources* - é uma pasta de recurso, contem o arquivo VIEW do projeto, vai colocar os JS, CSS etc.
 ->routs* - espesificamente no arquivo web.php, nesta pasta fica as rotas do nosso site
+	+web = as rotas que vamos colocar nesse arquivo sera as rotas que ira ser usada para internet, vai utilizar cookies session
+	+api = local onde iremos contruir nossas rotas, mas não irá utilizar rotas e nem cookies, sera usada para fazer api
+	+console = é para quando estamos utilizando o laravel como terminal de comando
+	+channels = usa para fazer integração com socats e broadcasting
 ->storage - será usado muito pouco, se relaciona tambem ao banco de dados, você pode colocar tambem em app/public, você pode colocar os arquivo do usuario, fotos cadastrada pelo usuario como exemplo
 ->teste - podera ser feitos teste unitarios etc
 ->vendor - tera todas biblioteca como o NODEMODULES
