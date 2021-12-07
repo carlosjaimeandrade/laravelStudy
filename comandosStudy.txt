@@ -20,6 +20,9 @@ no arquivo database.php é interessa alterar os dados
             'charset' => 'utf8',
             'collation' => 'utf8_general_ci',
 
+- Criar controllers
+
+
 -O que é cada pasta
 ->public* -> onde ficara aa pasta que renderezir para o usuariio
 ->app* - dentro da pasta ficara o codigo principal
@@ -35,3 +38,5 @@ no arquivo database.php é interessa alterar os dados
 ->storage - será usado muito pouco, se relaciona tambem ao banco de dados, você pode colocar tambem em app/public, você pode colocar os arquivo do usuario, fotos cadastrada pelo usuario como exemplo
 ->teste - podera ser feitos teste unitarios etc
 ->vendor - tera todas biblioteca como o NODEMODULES
+
+
