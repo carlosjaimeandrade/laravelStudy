@@ -53,4 +53,26 @@ Route::get('/user/{id}', function ($id) {
 })->where('name', '[0-9]+');
 
 
+Route::get('/config/info', function(){
+    echo "configuração info";
+});
+
+//Rotas com Nome + Redirect
+Route::get('/config', function(){
+    //pega o valor do nome dado pra rota 
+    $link = route('info');
+    echo "link:" . $link;
+    //redireciona
+    return redirect()->route('permissao');
+    //carrega a vieew
+    return view('config');
+
+});
+Route::get('/config/info', function(){
+    echo "configuração info";
+})->name('info');
+
+Route::get('/config/premissoes', function(){
+    echo "configuração premissoes";
+})->name('permissao');
 
