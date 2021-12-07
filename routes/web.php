@@ -36,7 +36,21 @@ Route::get('/noticias/{slug}', function ($e) {
     echo $e;
 });
 
+//Providers
+//vai da notfound se no segundo parametro colocar LETRAS pois no app/providers esta setado Route::pattern('id', '[0-9]+');
 Route::get('/noticias/{slug}/comentario/{id}', function ($slug, $id) {
     echo "Variavel 1: {$slug}";
     echo "Variavel 2: {$id}";
 });
+
+// empressao regular COM FILTRO
+Route::get('/user/{name}', function ($name) {
+    echo "mostrando o usuario NOME $name";
+});
+
+Route::get('/user/{id}', function ($id) {
+    echo "mostrando o usuario ID $id";
+})->where('name', '[0-9]+');
+
+
+
