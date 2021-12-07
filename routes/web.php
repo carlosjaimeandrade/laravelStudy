@@ -57,8 +57,8 @@ Route::get('/config/info', function(){
     echo "configuração info";
 });
 
-//Rotas com Nome + Redirect
-Route::get('/config', function(){
+//**Rotas com Nome + Redirect
+/* Route::get('/config', function(){
     //pega o valor do nome dado pra rota 
     $link = route('info');
     echo "link:" . $link;
@@ -68,11 +68,28 @@ Route::get('/config', function(){
     return view('config');
 
 });
+
 Route::get('/config/info', function(){
     echo "configuração info";
 })->name('info');
 
 Route::get('/config/premissoes', function(){
     echo "configuração premissoes";
-})->name('permissao');
+})->name('permissao'); */
 
+
+//Grupo de Rotas podemos agrupar rotas criando um prefix como exemplo o prefix config
+Route::prefix('/config')->group(function(){
+    Route::get('/', function(){
+        return view('config');
+    });
+
+    Route::get('/info', function(){
+        echo "Configuração info";
+    });
+
+    Route::get('/permissao', function(){
+        echo "Configuração permissao";
+    });
+
+});
