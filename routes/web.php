@@ -28,3 +28,15 @@ Route::view('/teste','teste');
 
 //redirecionamento automatico
 Route::redirect('/welcome','teste');
+
+// dentro de {} podemos colocar nossa variavel dinamia para pegar o que o usuario digita
+// posso ter mais de 1 slug (variavel) basca colocar  
+Route::get('/noticias/{slug}', function ($e) {
+    echo 'Titulo: Titulo qualquer: ';
+    echo $e;
+});
+
+Route::get('/noticias/{slug}/comentario/{id}', function ($slug, $id) {
+    echo "Variavel 1: {$slug}";
+    echo "Variavel 2: {$id}";
+});
