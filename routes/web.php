@@ -91,5 +91,11 @@ Route::prefix('/config')->group(function(){
     Route::get('/permissao', function(){
         echo "Configuração permissao";
     });
+  
+});
 
+// controlar 404 de rotas not found
+// sempre colocar no final do codigo
+Route::fallback(function(){
+    return view('notfound');
 });
