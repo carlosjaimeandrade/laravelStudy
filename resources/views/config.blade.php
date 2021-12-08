@@ -1,6 +1,7 @@
 <h1>Configuraçãoes</h1>
 
-<form  method="get" >
+<form  method="post" >
+    @csrf
     name:
     <input name='nome' type="text">
     idade:

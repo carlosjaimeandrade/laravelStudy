@@ -19,10 +19,15 @@ use App\Http\Controllers\HomeController;
 }); */
 
 //laravel versao 6
-Route::get('/', 'HomeController@index');
+//Route::get('/', 'HomeController@index');
 
 //rotas + controllers melhor sempre usar assim no laravel 8
 Route::get('/config', [ConfigController::class, 'index']);
+
+//via post posso pedir apos receber a requisição para direcionar para outra class por exemplo
+//[ConfigController::class, 'user'] mas no caso abaiixo esta na mesma class
+Route::post('/config', [ConfigController::class, 'index']);
+
 Route::get('/config/user', [ConfigController::class, 'user']);
 Route::get('/', [HomeController::class, 'index']);
 
