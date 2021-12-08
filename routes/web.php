@@ -18,7 +18,12 @@ use App\Http\Controllers\HomeController;
     return view('welcome');
 }); */
 
+//laravel versao 6
+Route::get('/', 'HomeController@index');
+
 //rotas + controllers melhor sempre usar assim no laravel 8
 Route::get('/config', [ConfigController::class, 'index']);
 Route::get('/config/user', [ConfigController::class, 'user']);
 Route::get('/', [HomeController::class, 'index']);
+
+
