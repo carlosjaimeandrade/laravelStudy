@@ -17,6 +17,6 @@ class ConfigController extends Controller
 
     public function user()
     {
-        echo "pagina inicial do usuario";
+       return view('teste');
     }
 }

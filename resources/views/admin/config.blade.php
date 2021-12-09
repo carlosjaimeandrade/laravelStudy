@@ -1,16 +1,22 @@
-<h1>Configuraçãoes</h1>
+@extends('layouts.admin') {{-- Ele pega a pasta do templates e carrega aqi --}}
 
-meu nome é {{$nome}} Eu tenho {{$idade}}
-<br>
-essa é uma variavel global, versão é {{$versao}}
-<form  method="post" >
-    @csrf
-    name:
-    <input name='nome' type="text">
-    idade:
-    <input name='idade' type="text">
+@section('title', 'Config')
 
-    <input type="submit">
-</form>
+@section('content')
+    <h1>Configuraçãoes</h1>
 
-<a href="/config/user">Informações</a>
+    meu nome é {{ $nome }} Eu tenho {{ $idade }}
+    <br>
+    essa é uma variavel global, versão é {{ $versao }}
+    <form method="post">
+        @csrf
+        name:
+        <input name='nome' type="text">
+        idade:
+        <input name='idade' type="text">
+
+        <input type="submit">
+    </form>
+
+    <a href="/config/user">Informações</a>
+@endsection
