@@ -1,5 +1,8 @@
 <h1>Configuraçãoes</h1>
 
+meu nome é {{$nome}} Eu tenho {{$idade}}
+<br>
+essa é uma variavel global, versão é {{$versao}}
 <form  method="post" >
     @csrf
     name:
