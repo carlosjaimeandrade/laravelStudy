@@ -4,6 +4,14 @@
 
 @section('content')
     <h1>Configuraçãoes</h1>
+
+    @component('alert')
+        @slot('type')
+            error
+        @endslot
+        Exemplo de conteudo
+    @endcomponent
+
     <h1>Pegando os dados separado do controller</h1>
     meu nome é {{ $nome }} Eu tenho {{ $idade }}
     <br>
