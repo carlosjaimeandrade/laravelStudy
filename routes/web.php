@@ -1,8 +1,9 @@
 <?php
-
+//sempre devemos imortar a class do controler
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TarefasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,18 +34,22 @@ Route::get('/config/user', [ConfigController::class, 'user']);
 
 Route::prefix('/tarefas')->group(function () {
 
-    Route::get('/', ''); //listagem de tarefas
+    Route::get('/', [TarefasController::class, 'list']);
+    //Route::get('/', 'TarefasController@list'); //listagem de tarefas
 
-    Route::get('add', ''); //tela de adição de nova tarefa
-    Route::post('add', ''); //ação de adição de nova tarefa
+    Route::get('/add', [TarefasController::class, 'add']);
+    //Route::get('add', 'TarefasController@add'); //tela de adição de nova tarefa
+    Route::post('/add', [TarefasController::class, 'addAction']);
+    //Route::post('add', 'TarefasController@addAction'); //ação de adição de nova tarefa
 
-    Route::get('edit/{id}', ''); //tela de edição
-    Route::post('edit/{id}', ''); //ação de adição
-
-    Route::get('delete/{id}', ''); //tela de deletar
-
-    Route::get('marcar/{id}', ''); //tela de resolvido
-    
+    Route::get('/edit', [TarefasController::class, 'edit']);
+    //Route::get('edit/{id}', 'TarefasController@edit'); //tela de edição
+    //Route::post('edit/{id}', 'TarefasController@editAction'); //ação de adição
+    Route::post('/edit', [TarefasController::class, 'editAction']);
+    //Route::get('delete/{id}', 'TarefasController@del'); //tela de deletar
+    Route::get('/delete', [TarefasController::class, 'del']);
+    //Route::get('marcar/{id}', 'TarefasController@done'); //tela de resolvido/NÃO
+    Route::get('/marcar', [TarefasController::class, 'done']);
 
 });
 
