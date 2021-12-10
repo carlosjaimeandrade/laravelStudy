@@ -5,5 +5,18 @@
 @section('content')
     <h1>Listagem</h1>
 
-@endsection
+    @if (count($list) > 0)
 
+        <ul>
+            @foreach ($list as $value)
+                <li>{{ $value->titulo }}</li>
+            @endforeach
+        </ul>
+
+    @else
+        Não há lista a serem listados
+    @endif
+
+
+
+@endsection
