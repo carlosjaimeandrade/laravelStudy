@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// inserindo o banco de dados
+use Illuminate\Support\Facades\DB;
 
 class TarefasController extends Controller
 {
     public function list(){
+
         return view('tarefas.list');
     }
 
