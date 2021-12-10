@@ -34,7 +34,7 @@ Route::get('/config/user', [ConfigController::class, 'user']);
 
 Route::prefix('/tarefas')->group(function () {
 
-    Route::get('/', [TarefasController::class, 'list']);
+    Route::get('/', [TarefasController::class, 'list'])->name('tarefas.list');;
     //Route::get('/', 'TarefasController@list'); //listagem de tarefas
 
     Route::get('/add', [TarefasController::class, 'add'])->name('tarefas.add');

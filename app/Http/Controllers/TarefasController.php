@@ -19,8 +19,19 @@ class TarefasController extends Controller
     public function add(){
         return view('tarefas.add');
     }
-    public function addAction(){
+    public function addAction(Request $request){
+        if($request->filled('titulo')){
+            $titulo = $request->input('titulo');
 
+            DB::insert('INSERT INTO tarefas (titulo)values(:titulo)', [
+                'titulo'=> $titulo
+            ]);
+
+
+            return redirect()->route('tarefas.list');
+        }else{
+
+        }
     }
     public function edit(){
         return view('tarefas.edit');
