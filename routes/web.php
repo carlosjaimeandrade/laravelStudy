@@ -37,19 +37,19 @@ Route::prefix('/tarefas')->group(function () {
     Route::get('/', [TarefasController::class, 'list']);
     //Route::get('/', 'TarefasController@list'); //listagem de tarefas
 
-    Route::get('/add', [TarefasController::class, 'add']);
+    Route::get('/add', [TarefasController::class, 'add'])->name('tarefas.add');
     //Route::get('add', 'TarefasController@add'); //tela de adição de nova tarefa
     Route::post('/add', [TarefasController::class, 'addAction']);
     //Route::post('add', 'TarefasController@addAction'); //ação de adição de nova tarefa
 
-    Route::get('/edit', [TarefasController::class, 'edit']);
+    Route::get('/edit/{id}', [TarefasController::class, 'edit'])->name('tarefas.edit');
     //Route::get('edit/{id}', 'TarefasController@edit'); //tela de edição
     //Route::post('edit/{id}', 'TarefasController@editAction'); //ação de adição
-    Route::post('/edit', [TarefasController::class, 'editAction']);
+    Route::post('/edit/{id}', [TarefasController::class, 'editAction']);
     //Route::get('delete/{id}', 'TarefasController@del'); //tela de deletar
-    Route::get('/delete', [TarefasController::class, 'del']);
+    Route::get('/delete/{id}', [TarefasController::class, 'del'])->name('tarefas.del');
     //Route::get('marcar/{id}', 'TarefasController@done'); //tela de resolvido/NÃO
-    Route::get('/marcar', [TarefasController::class, 'done']);
+    Route::get('/marcar/{id}', [TarefasController::class, 'done'])->name('tarefas.marcar');
 
 });
 
