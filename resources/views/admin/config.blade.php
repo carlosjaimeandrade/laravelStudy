@@ -5,12 +5,26 @@
 @section('content')
     <h1>Configuraçãoes</h1>
 
-    @component('alert')
+{{--     @component('components.alert')
         @slot('type')
             error
         @endslot
         Exemplo de conteudo
-    @endcomponent
+    @endcomponent --}}
+
+{{--     assim devemos fazer no laravel 8 para aparecer os componentes criado no AppSERVICEPROVIDER --}}
+    <x-alert>
+        @slot('type')
+            error
+        @endslot
+
+        @slot('subtitle')
+        sub titulo
+        @endslot
+
+            Conteúdo principal do componente
+    </x-alert>
+
 
     <h1>Pegando os dados separado do controller</h1>
     meu nome é {{ $nome }} Eu tenho {{ $idade }}
