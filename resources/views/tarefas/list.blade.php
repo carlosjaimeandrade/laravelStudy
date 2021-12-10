@@ -12,10 +12,10 @@
         <ul>
             @foreach ($list as $value)
                 <li>
-                    <a href="{{route('tarefas.marcar')}}">@if ($value->resolvido === 1) Desmarcar @else Marcar @endif </a>
+                    <a href="{{ route('tarefas.done',['id'=>$value->id]) }}">@if ($value->resolvido === 1) Desmarcar @else Marcar @endif </a>
                     {{ $value->titulo }}
-                    <a href="">Editar</a>
-                    <a href="">Excluir</a>
+                    <a href="{{ route('tarefas.edit',['id'=>$value->id]) }}">Editar</a>
+                    <a href="{{ route('tarefas.del',['id'=>$value->id]) }}">Excluir</a>
                 </li>
 
             @endforeach

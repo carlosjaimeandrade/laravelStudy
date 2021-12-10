@@ -49,7 +49,7 @@ Route::prefix('/tarefas')->group(function () {
     //Route::get('delete/{id}', 'TarefasController@del'); //tela de deletar
     Route::get('/delete/{id}', [TarefasController::class, 'del'])->name('tarefas.del');
     //Route::get('marcar/{id}', 'TarefasController@done'); //tela de resolvido/NÃO
-    Route::get('/marcar/{id}', [TarefasController::class, 'done'])->name('tarefas.marcar');
+    Route::get('/marcar/{id}', [TarefasController::class, 'done'])->name('tarefas.done');
 
 });
 
