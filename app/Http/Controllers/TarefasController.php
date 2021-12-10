@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 class TarefasController extends Controller
 {
     public function list(){
-        $list = DB::select('SELECT * FROM tarefas WHERE resolvido= :status',['status'=>1]);
+        $list = DB::select('SELECT * FROM tarefas');
+
         return view('tarefas.list', [
             'list' => $list
         ]);

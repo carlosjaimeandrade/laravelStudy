@@ -5,11 +5,19 @@
 @section('content')
     <h1>Listagem</h1>
 
+    <a href="">Adicionar nova tarefa</a>
+
     @if (count($list) > 0)
 
         <ul>
             @foreach ($list as $value)
-                <li>{{ $value->titulo }}</li>
+                <li>
+                    <a href="">@if ($value->resolvido === 1) @else Marcar @endif </a>
+                    {{ $value->titulo }}
+                    <a href="">Editar</a>
+                    <a href="">Excluir</a>
+                </li>
+
             @endforeach
         </ul>
     @else
