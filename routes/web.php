@@ -31,5 +31,22 @@ Route::post('/config', [ConfigController::class, 'index']);
 
 Route::get('/config/user', [ConfigController::class, 'user']);
 
+Route::prefix('/tarefas')->group(function () {
+
+    Route::get('/', ''); //listagem de tarefas
+
+    Route::get('add', ''); //tela de adição de nova tarefa
+    Route::post('add', ''); //ação de adição de nova tarefa
+
+    Route::get('edit/{id}', ''); //tela de edição
+    Route::post('edit/{id}', ''); //ação de adição
+
+    Route::get('delete/{id}', ''); //tela de deletar
+
+    Route::get('marcar/{id}', ''); //tela de resolvido
+    
+
+});
+
 
 
