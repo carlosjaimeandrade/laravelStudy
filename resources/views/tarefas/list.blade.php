@@ -12,7 +12,6 @@
                 <li>{{ $value->titulo }}</li>
             @endforeach
         </ul>
-
     @else
         Não há lista a serem listados
     @endif
