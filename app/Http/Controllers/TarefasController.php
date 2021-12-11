@@ -10,7 +10,8 @@ class TarefasController extends Controller
 {
 
     //sempre ter um para GET e para
-    public function list(){
+    public function list()
+    {
         $list = DB::select('SELECT * FROM tarefas');
 
         return view('tarefas.list', [
@@ -18,41 +19,59 @@ class TarefasController extends Controller
         ]);
     }
 
-    public function add(){
+    public function add()
+    {
         return view('tarefas.add');
     }
-    
-    public function addAction(Request $request){
-        if($request->filled('titulo')){
+
+    public function addAction(Request $request)
+    {
+        if ($request->filled('titulo')) {
             $titulo = $request->input('titulo');
 
             DB::insert('INSERT INTO tarefas (titulo)values(:titulo)', [
-                'titulo'=> $titulo
+                'titulo' => $titulo
             ]);
 
             return redirect()->route('tarefas.list');
-        }else{
-
+        } else {
         }
     }
-    public function edit($id){
-   
-        var_dump($id);
-        $list = DB::select('SELECT * FROM tarefas');
-        return view('tarefas.edit');
+    public function edit($id)
+    {
+        $list = DB::select('SELECT * FROM tarefas WHERE id=:id', [
+            'id' => $id
+        ]);
+
+        if (count($list)>0) {
+            return view('tarefas.edit', [
+                'list' => $list
+            ]);
+        } else {
+            return view('notfound');
+        }
     }
 
-    public function editAction(){
+    public function editAction(Request $request, $id)
+    {
+        if ($request->filled('titulo')) {
+            $titulo = $request->input('titulo');
 
+            DB::update('UPDATE tarefas SET titulo=:titulo WHERE id=:id', [
+                'titulo' => $titulo,
+                'id' => $id
+            ]);
+
+            return redirect()->route('tarefas.list');
+        } else {
+        }
     }
 
-    public function del(){
-
+    public function del()
+    {
     }
 
-    public function done(){
-
+    public function done()
+    {
     }
-
-
 }

@@ -9,7 +9,7 @@
         @csrf
 
         <label for="">Titulo</label>
-        <input value='' name='titulo' type="text">
+        <input value='{{$list[0]->titulo}}' name='titulo' type="text">
         <input type="submit">
     </form>
 @endsection
