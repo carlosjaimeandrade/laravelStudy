@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class TarefasController extends Controller
 {
+
+    //sempre ter um para GET e para
     public function list(){
         $list = DB::select('SELECT * FROM tarefas');
 
@@ -19,6 +21,7 @@ class TarefasController extends Controller
     public function add(){
         return view('tarefas.add');
     }
+    
     public function addAction(Request $request){
         if($request->filled('titulo')){
             $titulo = $request->input('titulo');
@@ -27,13 +30,15 @@ class TarefasController extends Controller
                 'titulo'=> $titulo
             ]);
 
-
             return redirect()->route('tarefas.list');
         }else{
 
         }
     }
-    public function edit(){
+    public function edit($id){
+   
+        var_dump($id);
+        $list = DB::select('SELECT * FROM tarefas');
         return view('tarefas.edit');
     }
 

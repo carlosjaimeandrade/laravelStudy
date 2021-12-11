@@ -5,6 +5,7 @@
 @section('content')
     <h1>Listagem</h1>
 
+
     <a href="{{url('/tarefas/add')}}">Adicionar nova tarefa</a>
 
     @if (count($list) > 0)
