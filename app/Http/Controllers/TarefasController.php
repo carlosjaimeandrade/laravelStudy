@@ -52,10 +52,11 @@ class TarefasController extends Controller
 
         if (count($list) > 0) {
             return view('tarefas.edit', [
-                'list' => $list
+                'list' => $list[0]
             ]);
         } else {
             return view('notfound');
+            //no caso do b7web ele redirect para o tarefas.list
         }
     }
 
@@ -67,7 +68,6 @@ class TarefasController extends Controller
         }else{
             $titulo = '';
         }
-
             DB::update('UPDATE tarefas SET titulo=:titulo WHERE id=:id', [
                 'titulo' => $titulo,
                 'id' => $id
