@@ -61,8 +61,6 @@ class TarefasController extends Controller
 
     public function editAction(Request $request, $id)
     {
-        //criando uma variavel de sessao
-        session(['msg' => 'atualizado com sucesso']);
        
         if ($request->filled('titulo')) {
             $titulo = $request->input('titulo');
@@ -75,7 +73,7 @@ class TarefasController extends Controller
                 'id' => $id
             ]);
 
-            return redirect()->route('tarefas.list');
+            return redirect()->route('tarefas.list')->with('msg', 'Atualizado com sucesso');
    
     }
 
