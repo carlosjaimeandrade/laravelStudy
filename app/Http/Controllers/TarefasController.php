@@ -39,8 +39,8 @@ class TarefasController extends Controller
 
             return redirect()->route('tarefas.list');
         } else {
-            //flash
-            return redirect()->route('tarefas.add');
+            //flash aqui criamos uma variavel de session usando with
+            return redirect()->route('tarefas.add')->with('warning','Você não preencheu o título');
         }
     }
     public function edit($id)
