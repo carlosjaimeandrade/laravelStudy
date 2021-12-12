@@ -3,7 +3,8 @@
 </div>
 
 <style>
-    body{
+    body{  
+        
         margin: 0px;
     }
     .notfound{

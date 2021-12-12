@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\DB;
 // caso deseja destruir a sessao no controller
 use Illuminate\Support\Facades\Session;
 
-
-
 class TarefasController extends Controller
 {
 

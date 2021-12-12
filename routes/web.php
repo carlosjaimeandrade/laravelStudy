@@ -41,7 +41,6 @@ Route::prefix('/tarefas')->group(function () {
     //Route::get('add', 'TarefasController@add'); //tela de adição de nova tarefa
     Route::post('/add', [TarefasController::class, 'addAction']);
     //Route::post('add', 'TarefasController@addAction'); //ação de adição de nova tarefa
-
     Route::get('/edit/{id}', [TarefasController::class, 'edit'])->name('tarefas.edit');
     //Route::get('edit/{id}', 'TarefasController@edit'); //tela de edição
     //Route::post('edit/{id}', 'TarefasController@editAction'); //ação de adição
