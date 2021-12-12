@@ -39,6 +39,8 @@ class TarefasController extends Controller
 
             return redirect()->route('tarefas.list');
         } else {
+            //flash
+            return redirect()->route('tarefas.add');
         }
     }
     public function edit($id)
