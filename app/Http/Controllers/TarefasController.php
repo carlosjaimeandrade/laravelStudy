@@ -40,6 +40,7 @@ class TarefasController extends Controller
             return redirect()->route('tarefas.list');
         } else {
             //flash aqui criamos uma variavel de session usando with
+            // apos ser lida ela é destruida da sessao
             return redirect()->route('tarefas.add')->with('warning','Você não preencheu o título');
         }
     }
