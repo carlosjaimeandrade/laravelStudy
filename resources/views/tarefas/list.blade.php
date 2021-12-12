@@ -4,8 +4,13 @@
 
 @section('content')
     <h1>Listagem</h1>
-
-
+    
+    {{-- chamando uma variavel de sessao --}}
+    @if (session('msg') != null)
+        {{session('msg')}}
+        {{Session::forget('msg')}}
+    @endif
+    <br>
     <a href="{{url('/tarefas/add')}}">Adicionar nova tarefa</a>
 
     @if (count($list) > 0)

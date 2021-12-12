@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // inserindo o banco de dados
 use Illuminate\Support\Facades\DB;
+// caso deseja destruir a sessao no controller
+use Illuminate\Support\Facades\Session;
+
+
 
 class TarefasController extends Controller
 {
@@ -12,12 +16,13 @@ class TarefasController extends Controller
     //sempre ter um para GET e para
     public function list()
     {
-        
+      
         $list = DB::select('SELECT * FROM tarefas');
 
         return view('tarefas.list', [
             'list' => $list
         ]);
+
     }
 
     public function add()
@@ -55,6 +60,8 @@ class TarefasController extends Controller
 
     public function editAction(Request $request, $id)
     {
+        //criando uma variavel de sessao
+        session(['msg' => 'atualizado com sucesso']);
        
         if ($request->filled('titulo')) {
             $titulo = $request->input('titulo');
