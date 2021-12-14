@@ -62,7 +62,7 @@ class TarefasController extends Controller
 
     public function editAction(Request $request, $id)
     {
-       
+       // no caso do b7web força a pessoa colocar dados para editar, no meu caso eu não obriguei.
         if ($request->filled('titulo')) {
             $titulo = $request->input('titulo');
         }else{
@@ -79,7 +79,7 @@ class TarefasController extends Controller
 
     public function del($id)
     {
-
+        //b7web fez igual ao meu exemplo abaixo
         DB::delete('DELETE FROM tarefas WHERE id=:id', [
             'id' => $id
         ]);

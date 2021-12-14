@@ -29,7 +29,7 @@
                     <a href="{{ route('tarefas.done', ['id' => $value->id]) }}">@if ($value->resolvido === 1) Desmarcar @else Marcar @endif </a>
                     {{ $value->titulo }}
                     <a href="{{ route('tarefas.edit', ['id' => $value->id]) }}">Editar</a>
-                    <a href="{{ route('tarefas.del', ['id' => $value->id]) }}">Excluir</a>
+                    <a href="{{ route('tarefas.del', ['id' => $value->id]) }}" onclick="return confirm('Tem certeza que deseja excluir ?')">Excluir</a>
                 </li>
 
             @endforeach
