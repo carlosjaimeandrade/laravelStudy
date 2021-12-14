@@ -100,6 +100,12 @@ class TarefasController extends Controller
                 'marcador' => $marcador,
                 'id' => $id
             ]);
+
+            //ele faz a alternancia na propria query de UPDATE
+/*             DB::UPDATE('UPDATE tarefas SET resolvido= 1 - resolvido WHERE id=:id', [
+                'id' => $id
+            ]); */
+
             return redirect()->route('tarefas.list');
         } else {
             return view('notfound');
