@@ -29,6 +29,7 @@ class TarefasController extends Controller
 
     public function addAction(Request $request)
     {
+        //forma query builder
         $request->validate([
             'titulo' => [ 'required', 'string' ]
         ]);
