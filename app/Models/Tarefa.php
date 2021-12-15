@@ -26,4 +26,7 @@ class Tarefa extends Model
 /*  CONST CREATED_AT = 'date_created';
     CONST UPDATE_AT = 'date_updated' */
 
+
+    //usando model
+
 }
