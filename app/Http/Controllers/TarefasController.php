@@ -14,13 +14,12 @@ class TarefasController extends Controller
     //sempre ter um para GET e para
     public function list()
     {
-      
+
         $list = DB::select('SELECT * FROM tarefas');
 
         return view('tarefas.list', [
             'list' => $list
         ]);
-
     }
 
     public function add()
@@ -30,19 +29,17 @@ class TarefasController extends Controller
 
     public function addAction(Request $request)
     {
-        if ($request->filled('titulo')) {
-            $titulo = $request->input('titulo');
+        $request->validate([
+            'titulo' => [ 'required', 'string' ]
+        ]);
 
-            DB::insert('INSERT INTO tarefas (titulo)values(:titulo)', [
-                'titulo' => $titulo
-            ]);
+        $titulo = $request->input('titulo');
 
-            return redirect()->route('tarefas.list');
-        } else {
-            //flash aqui criamos uma variavel de session usando with
-            // apos ser lida ela é destruida da sessao
-            return redirect()->route('tarefas.add')->with('warning','Você não preencheu o título');
-        }
+        DB::insert('INSERT INTO tarefas (titulo)values(:titulo)', [
+            'titulo' => $titulo
+        ]);
+
+        return redirect()->route('tarefas.list');
     }
     public function edit($id)
     {
@@ -62,19 +59,18 @@ class TarefasController extends Controller
 
     public function editAction(Request $request, $id)
     {
-       // no caso do b7web força a pessoa colocar dados para editar, no meu caso eu não obriguei.
+        // no caso do b7web força a pessoa colocar dados para editar, no meu caso eu não obriguei.
         if ($request->filled('titulo')) {
             $titulo = $request->input('titulo');
-        }else{
+        } else {
             $titulo = '';
         }
-            DB::update('UPDATE tarefas SET titulo=:titulo WHERE id=:id', [
-                'titulo' => $titulo,
-                'id' => $id
-            ]);
+        DB::update('UPDATE tarefas SET titulo=:titulo WHERE id=:id', [
+            'titulo' => $titulo,
+            'id' => $id
+        ]);
 
-            return redirect()->route('tarefas.list')->with('msg', 'Atualizado com sucesso');
-   
+        return redirect()->route('tarefas.list')->with('msg', 'Atualizado com sucesso');
     }
 
     public function del($id)
@@ -102,7 +98,7 @@ class TarefasController extends Controller
             ]);
 
             //ele faz a alternancia na propria query de UPDATE
-/*             DB::UPDATE('UPDATE tarefas SET resolvido= 1 - resolvido WHERE id=:id', [
+            /*             DB::UPDATE('UPDATE tarefas SET resolvido= 1 - resolvido WHERE id=:id', [
                 'id' => $id
             ]); */
 

@@ -5,18 +5,23 @@
 @section('content')
     <h1>Add tarefas</h1>
 
-    @if (session('warning'))
+    {{-- any verifica se tem algum erro contido --}}
+    @if ($errors->any())
         {{-- assim devemos fazer no laravel 8 para aparecer os componentes criado no AppSERVICEPROVIDER --}}
+        
         <x-alert>
             @slot('type')
-                Error de preenchimento
+                Error de preenchimento feito pela validação
             @endslot
 
             @slot('subtitle')
                 Motivo:
             @endslot
 
-            {{session('warning')}}
+            {{-- aqui passamos por todos os erros contido --}}
+            @foreach($errors->all() as $error)
+                {{$error}} <br>
+            @endforeach
         </x-alert>
 
     @endif
