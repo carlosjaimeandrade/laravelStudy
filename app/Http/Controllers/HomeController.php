@@ -44,6 +44,11 @@ class HomeController extends Controller
         $total = Tarefa::where('resolvido',1)->count();
         echo $total;
 
+        // inserindo um valor na tabela
+        $t = New Tarefa;
+        $t->titulo = 'testando pelo eloquent';
+        $t->save();
+
         //return view('welcome');
 
     }
