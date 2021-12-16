@@ -54,6 +54,10 @@ class HomeController extends Controller
         $t->titulo = 'Dormir';
         $t->save();
 
+        // removendo um item pelo
+        $t = Tarefa::find(7);
+        $t->delete();
+
         //return view('welcome');
 
     }
