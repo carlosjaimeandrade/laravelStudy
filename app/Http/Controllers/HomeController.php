@@ -32,6 +32,13 @@ class HomeController extends Controller
         //procura o item pelo id retornaod 1 valor
         $item = Tarefa::find(7);
         echo $item->titulo . "<br>";
+
+        
+        //procura o item pelo id retornaod 1 ou mais valores
+        $list = Tarefa::find([7,8]);
+        foreach ($list as $item) {
+            echo $item->titulo . "<br>";
+        }
         //return view('welcome');
 
     }
