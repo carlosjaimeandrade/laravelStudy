@@ -39,6 +39,11 @@ class HomeController extends Controller
         foreach ($list as $item) {
             echo $item->titulo . "<br>";
         }
+
+        // contando o total de registros
+        $total = Tarefa::where('resolvido',1)->count();
+        echo $total;
+
         //return view('welcome');
 
     }
