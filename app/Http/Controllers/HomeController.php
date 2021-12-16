@@ -49,6 +49,11 @@ class HomeController extends Controller
         $t->titulo = 'testando pelo eloquent';
         $t->save();
 
+        //editando um item;
+        $t = Tarefa::find(7);
+        $t->titulo = 'Dormir';
+        $t->save();
+
         //return view('welcome');
 
     }
