@@ -30,35 +30,46 @@ class HomeController extends Controller
         }
 
         //procura o item pelo id retornaod 1 valor
-        $item = Tarefa::find(7);
+        $item = Tarefa::find(11);
         echo $item->titulo . "<br>";
 
-        
+
         //procura o item pelo id retornaod 1 ou mais valores
-        $list = Tarefa::find([7,8]);
+        $list = Tarefa::find([11, 8]);
         foreach ($list as $item) {
             echo $item->titulo . "<br>";
         }
 
         // contando o total de registros
-        $total = Tarefa::where('resolvido',1)->count();
+        $total = Tarefa::where('resolvido', 1)->count();
         echo $total;
 
         // inserindo um valor na tabela
-        $t = New Tarefa;
+        $t = new Tarefa;
         $t->titulo = 'testando pelo eloquent';
         $t->save();
 
         //editando um item;
-        $t = Tarefa::find(7);
+        $t = Tarefa::find(11);
         $t->titulo = 'Dormir';
         $t->save();
 
         // removendo um item pelo
-        $t = Tarefa::find(7);
-        $t->delete();
+        /* $t = Tarefa::find(7);
+        $t->delete(); */
+
+        //editando em massa 
+        Tarefa::where('resolvido', 0)->update([
+            'resolvido' => 1
+        ]);
+
+        //excluindo em massa
+        /* Tarefa::where('resolvido', 0)->delete([
+            'resolvido' => 1
+        ]); */
 
         //return view('welcome');
+
 
     }
 }
