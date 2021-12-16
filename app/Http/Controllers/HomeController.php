@@ -29,6 +29,9 @@ class HomeController extends Controller
             echo $item->titulo . "<br>";
         }
 
+        //procura o item pelo id retornaod 1 valor
+        $item = Tarefa::find(7);
+        echo $item->titulo . "<br>";
         //return view('welcome');
 
     }
