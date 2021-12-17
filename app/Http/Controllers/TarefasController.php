@@ -86,9 +86,10 @@ class TarefasController extends Controller
     public function del($id)
     {
         //b7web fez igual ao meu exemplo abaixo
-        DB::delete('DELETE FROM tarefas WHERE id=:id', [
+/*         DB::delete('DELETE FROM tarefas WHERE id=:id', [
             'id' => $id
-        ]);
+        ]); */
+        Tarefa::find($id)->delete();
         return redirect()->route('tarefas.list');
     }
 
