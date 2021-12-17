@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 // caso deseja destruir a sessao no controller
 use Illuminate\Support\Facades\Session;
+use App\Models\Tarefa;
 
 class TarefasController extends Controller
 {
@@ -15,8 +16,8 @@ class TarefasController extends Controller
     public function list()
     {
 
-        $list = DB::select('SELECT * FROM tarefas');
-
+        /* $list = DB::select('SELECT * FROM tarefas'); */
+        $list = Tarefa::all();
         return view('tarefas.list', [
             'list' => $list
         ]);
