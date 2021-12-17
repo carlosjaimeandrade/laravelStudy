@@ -48,13 +48,14 @@ class TarefasController extends Controller
     }
     public function edit($id)
     {
-        $list = DB::select('SELECT * FROM tarefas WHERE id=:id', [
+/*         $list = DB::select('SELECT * FROM tarefas WHERE id=:id', [
             'id' => $id
-        ]);
+        ]); */
+        $list = Tarefa::find($id);
 
-        if (count($list) > 0) {
+        if ($list) {
             return view('tarefas.edit', [
-                'list' => $list[0]
+                'list' => $list 
             ]);
         } else {
             return view('notfound');
@@ -70,10 +71,14 @@ class TarefasController extends Controller
         } else {
             $titulo = '';
         }
-        DB::update('UPDATE tarefas SET titulo=:titulo WHERE id=:id', [
+/*         DB::update('UPDATE tarefas SET titulo=:titulo WHERE id=:id', [
             'titulo' => $titulo,
             'id' => $id
         ]);
+ */
+        $t = Tarefa::find($id);
+        $t->titulo = $titulo;
+        $t->save();
 
         return redirect()->route('tarefas.list')->with('msg', 'Atualizado com sucesso');
     }
