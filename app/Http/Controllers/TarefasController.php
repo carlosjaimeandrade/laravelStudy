@@ -103,10 +103,13 @@ class TarefasController extends Controller
 
             $marcador =  $list[0]->resolvido == 0 ? 1 : 0;
 
-            DB::UPDATE('UPDATE tarefas SET resolvido=:marcador WHERE id=:id', [
+/*             DB::UPDATE('UPDATE tarefas SET resolvido=:marcador WHERE id=:id', [
                 'marcador' => $marcador,
                 'id' => $id
-            ]);
+            ]); */
+            $t = Tarefa::find($id);
+            $t->resolvido = 1 - $t->resolvido;
+            $t->save();
 
             //ele faz a alternancia na propria query de UPDATE
             /*             DB::UPDATE('UPDATE tarefas SET resolvido= 1 - resolvido WHERE id=:id', [
