@@ -37,9 +37,12 @@ class TarefasController extends Controller
 
         $titulo = $request->input('titulo');
 
-        DB::insert('INSERT INTO tarefas (titulo)values(:titulo)', [
+/*         DB::insert('INSERT INTO tarefas (titulo)values(:titulo)', [
             'titulo' => $titulo
-        ]);
+        ]); */
+        $t = new Tarefa;
+        $t->titulo = $titulo;
+        $t->save();
 
         return redirect()->route('tarefas.list');
     }
