@@ -32,12 +32,12 @@ class TarefasController extends Controller
     {
         //forma query builder
         $request->validate([
-            'titulo' => [ 'required', 'string' ]
+            'titulo' => ['required', 'string']
         ]);
 
         $titulo = $request->input('titulo');
 
-/*         DB::insert('INSERT INTO tarefas (titulo)values(:titulo)', [
+        /*         DB::insert('INSERT INTO tarefas (titulo)values(:titulo)', [
             'titulo' => $titulo
         ]); */
         $t = new Tarefa;
@@ -48,14 +48,14 @@ class TarefasController extends Controller
     }
     public function edit($id)
     {
-/*         $list = DB::select('SELECT * FROM tarefas WHERE id=:id', [
+        /*         $list = DB::select('SELECT * FROM tarefas WHERE id=:id', [
             'id' => $id
         ]); */
         $list = Tarefa::find($id);
 
         if ($list) {
             return view('tarefas.edit', [
-                'list' => $list 
+                'list' => $list
             ]);
         } else {
             return view('notfound');
@@ -71,7 +71,7 @@ class TarefasController extends Controller
         } else {
             $titulo = '';
         }
-/*         DB::update('UPDATE tarefas SET titulo=:titulo WHERE id=:id', [
+        /*         DB::update('UPDATE tarefas SET titulo=:titulo WHERE id=:id', [
             'titulo' => $titulo,
             'id' => $id
         ]);
@@ -86,7 +86,7 @@ class TarefasController extends Controller
     public function del($id)
     {
         //b7web fez igual ao meu exemplo abaixo
-/*         DB::delete('DELETE FROM tarefas WHERE id=:id', [
+        /*         DB::delete('DELETE FROM tarefas WHERE id=:id', [
             'id' => $id
         ]); */
         Tarefa::find($id)->delete();
@@ -101,15 +101,17 @@ class TarefasController extends Controller
 
         if (count($list) > 0) {
 
-            $marcador =  $list[0]->resolvido == 0 ? 1 : 0;
+            /* $marcador =  $list[0]->resolvido == 0 ? 1 : 0; */
 
-/*             DB::UPDATE('UPDATE tarefas SET resolvido=:marcador WHERE id=:id', [
+            /*             DB::UPDATE('UPDATE tarefas SET resolvido=:marcador WHERE id=:id', [
                 'marcador' => $marcador,
                 'id' => $id
             ]); */
             $t = Tarefa::find($id);
-            $t->resolvido = 1 - $t->resolvido;
-            $t->save();
+            if ($t) {
+                $t->resolvido = 1 - $t->resolvido;
+                $t->save();
+            }
 
             //ele faz a alternancia na propria query de UPDATE
             /*             DB::UPDATE('UPDATE tarefas SET resolvido= 1 - resolvido WHERE id=:id', [

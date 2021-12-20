@@ -20,8 +20,11 @@ no arquivo database.php é interessa alterar os dados
             'charset' => 'utf8',
             'collation' => 'utf8_general_ci',
 
-- Criar controllers
+- Criar controllers (sempre colocar "{nome do controller}Controller"
+php artisan make:controller todoController
 
+- Criar controllers RESOURCE sempre colocar "{nome do controller}Controller"
+php artisan make:controller todoController --resource
 
 -O que é cada pasta
 ->public* -> onde ficara aa pasta que renderezir para o usuariio
