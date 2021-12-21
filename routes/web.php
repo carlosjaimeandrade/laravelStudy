@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TarefasController;
+use App\Http\Controllers\TodoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,20 @@ Route::post('/config', [ConfigController::class, 'index']);
 
 Route::get('/config/user', [ConfigController::class, 'user']);
 
+// vamos criar as mesmas rotas de tarefas, mas utilizando um controller rosource
+Route::resource('todo', TodoController::class);
+/*
+ele criaq essas rotas
+GET - rota -> /todo - metodo -> Index - ja cria com o nome-> todo.index (lista os item)
+GET - /todo/create - create - todo.create (from de criação)
+POST - /todo - store - todo.store - RECEBER OS DADOS E ADD ITEM
+GET - /todo/{id} - show - todo.show - ITEM INDIVIDUAL
+GET - /todo/{id}/edit - edit - todo.edit - FORMA DE EDIÇÃO
+PUT - /todo/{id} - update - todo.update - RECEBE os dados e update item
+DELETE - /todo/{id} - destroy - todo.destroy - DELETA O ITEM
+*/
+
+// aqui criamos as rotas sem utilizar o rosource 
 Route::prefix('/tarefas')->group(function () {
 
     Route::get('/', [TarefasController::class, 'list'])->name('tarefas.list');;
@@ -51,6 +66,7 @@ Route::prefix('/tarefas')->group(function () {
     Route::get('/marcar/{id}', [TarefasController::class, 'done'])->name('tarefas.done');
 
 });
+
 
 
 
