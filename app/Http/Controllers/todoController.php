@@ -13,7 +13,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        //
+        echo "teste index";
     }
 
     /**
@@ -23,6 +23,7 @@ class TodoController extends Controller
      */
     public function create()
     {
+        echo "teste create";
         //
     }
 

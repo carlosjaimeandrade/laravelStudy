@@ -26,7 +26,12 @@ use App\Http\Controllers\TodoController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/config', [ConfigController::class, 'index']);
+Route::get('/login', function (){
+    echo "Login";
+})->name('login');
+
+// o middleware verifica se esta logado e como padrao manda para pagina login
+Route::get('/config', [ConfigController::class, 'index'])->middleware('auth');
 //via post posso pedir apos receber a requisição para direcionar para outra class por exemplo
 //[ConfigController::class, 'user'] mas no caso abaiixo esta na mesma class
 Route::post('/config', [ConfigController::class, 'index']);
