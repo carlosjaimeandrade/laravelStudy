@@ -43,3 +43,11 @@ php artisan make:controller todoController --resource
 ->vendor - tera todas biblioteca como o NODEMODULES
 
 
+- criando arquivo auth
+Roda:
+
+compose require laravel/ui
+
+E depois roda:
+
+php artisan ui vue --auth
