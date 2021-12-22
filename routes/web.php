@@ -74,8 +74,8 @@ Route::prefix('/tarefas')->group(function () {
 
 
 
-
-
+// esse comando tras os controller da rota de Autenticação 
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
