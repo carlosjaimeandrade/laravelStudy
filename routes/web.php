@@ -27,7 +27,7 @@ use App\Http\Controllers\TodoController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', function (){
-    echo "Login";
+    echo "Login1";
 })->name('login');
 
 // c
