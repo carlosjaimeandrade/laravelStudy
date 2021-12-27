@@ -45,6 +45,14 @@ class LoginController extends Controller
     }
 
     public function authenticate(Request $request){
-        
+        //pegando os campos de email e senha
+        // only informo que quero pegar apenas 2 campos da requisição
+        $creds = $request->only(['email', 'password']);
+        //processo de autenticação
+        if(Auth::attempt($creds)){
+            return redirect()->route('config.index');
+        }else{
+            return redirect()->route('login')->with('warning', "email ou senha invalidos");
+        }
     }
 }

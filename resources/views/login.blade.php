@@ -2,6 +2,22 @@
 
 @section('title', 'Login')
 
+@if(session('warning'))
+<x-alert>
+    @slot('type')
+        Error de preenchimento feito pela validação
+    @endslot
+
+    @slot('subtitle')
+        Motivo:
+    @endslot
+
+    {{-- aqui passamos por todos os erros contido --}}
+    {{session('warning')}}
+</x-alert>
+@endif
+
+
 @section('content')
 
     <form method="post">
