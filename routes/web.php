@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TarefasController;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,10 +27,8 @@ use App\Http\Controllers\TodoController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/login', function (){
-    echo "Login1";
-})->name('login');
-
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate']);
 // c
 Route::get('/config', [ConfigController::class, 'index'])->middleware('auth');
 //via post posso pedir apos receber a requisição para direcionar para outra class por exemplo
@@ -75,7 +74,7 @@ Route::prefix('/tarefas')->group(function () {
 
 
 // esse comando tras os controller da rota de Autenticação 
-Auth::routes();
+//Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
