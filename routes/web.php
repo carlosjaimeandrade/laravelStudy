@@ -73,7 +73,8 @@ Route::prefix('/tarefas')->group(function () {
 
 
 
-// esse comando tras os controller da rota de Autenticação 
+// esse comando tras os controller da rota de Autenticação automaticamente
+
 //Auth::routes();
 
 
