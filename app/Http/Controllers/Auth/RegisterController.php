@@ -47,7 +47,7 @@ class RegisterController extends Controller
     }
 
     public function register(request $request){
-
+        $data = $request->only(['name','email', 'password']);
     }
     /**
      * Get a validator for an incoming registration request.

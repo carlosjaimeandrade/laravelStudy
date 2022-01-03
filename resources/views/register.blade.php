@@ -22,6 +22,7 @@
 
     <form method="post">
         @csrf
+        
         <input type="text" name="nome" placeholder="digite o seu nome">
         <input type="email" name="email" placeholder="digite seu e-mail">
         <input type="password" name="password" placeholder="Digite sua senha">
