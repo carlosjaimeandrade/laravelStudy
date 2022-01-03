@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -41,6 +42,13 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function index(){
+        return view('register');
+    }
+
+    public function register(request $request){
+
+    }
     /**
      * Get a validator for an incoming registration request.
      *

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TarefasController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +30,10 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
-// c
+//criando rota para registrar
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
+
 Route::get('/config', [ConfigController::class, 'index'])->name('config.index')->middleware('auth');
 //via post posso pedir apos receber a requisição para direcionar para outra class por exemplo
 //[ConfigController::class, 'user'] mas no caso abaiixo esta na mesma class
