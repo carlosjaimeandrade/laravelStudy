@@ -26,7 +26,7 @@
         <input type="text" name="nome" placeholder="digite o seu nome">
         <input type="email" name="email" placeholder="digite seu e-mail">
         <input type="password" name="password" placeholder="Digite sua senha">
-
+        <input type="password_confirmation" name="password" placeholder="Confirme sua senha">
         <input type="submit" value="entrar">
     </form>
 
