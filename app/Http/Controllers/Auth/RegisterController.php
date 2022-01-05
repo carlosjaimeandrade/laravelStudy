@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+
+
+
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -47,15 +51,17 @@ class RegisterController extends Controller
     }
 
     public function register(request $request){
-        $data = $request->only(['name','email', 'password']);
+        $data = $request->only(['name','email', 'password','password_confirmation']);
         $validator = $this->validator($data);
         if($validator->fails()){
             return redirect()->route("register")
             ->withErrors($validator)
             ->withInput();
-        } else{
+        } 
 
-        }
+        $user = $this->create($data);
+        Auth::login($user);
+        return redirect()->route("config.index");
     }
     /**
      * Get a validator for an incoming registration request.
