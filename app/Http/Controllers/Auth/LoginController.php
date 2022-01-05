@@ -55,4 +55,9 @@ class LoginController extends Controller
             return redirect()->route('login')->with('warning', "email ou senha invalidos");
         }
     }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }

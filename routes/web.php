@@ -34,6 +34,8 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 Route::get('/config', [ConfigController::class, 'index'])->name('config.index')->middleware('auth');
 //via post posso pedir apos receber a requisição para direcionar para outra class por exemplo
 //[ConfigController::class, 'user'] mas no caso abaiixo esta na mesma class

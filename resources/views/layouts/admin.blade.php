@@ -10,6 +10,7 @@
 
 <body>
     <header>
+        <a href="{{route('logout')}}">Sair</a>
         <h1>Header</h1>
     </header>
     <hr>
