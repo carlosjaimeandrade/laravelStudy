@@ -11,6 +11,11 @@ use App\Models\Tarefa;
 
 class TarefasController extends Controller
 {
+    //criando um contructer você pode definir um middleware nele para poder solicitar a senha de
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
 
     //sempre ter um para GET e para
     public function list()

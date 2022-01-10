@@ -56,6 +56,7 @@ PUT - /todo/{id} - update - todo.update - RECEBE os dados e update item
 DELETE - /todo/{id} - destroy - todo.destroy - DELETA O ITEM
 */
 
+// dentro desse grupo de rota defini um contructer para poder travar as rotas sem login
 // aqui criamos as rotas sem utilizar o rosource 
 Route::prefix('/tarefas')->group(function () {
 
