@@ -1,3 +1,5 @@
+{{ $nome }}
+{{$showForm}}
 @extends('layouts.admin') {{-- Ele pega a pasta do templates e carrega aqi --}}
 
 @section('title', 'Config')
@@ -81,6 +83,7 @@
     @endwhile --}}
 
     <h1>Formulario</h1>
+    @if($showForm)
     <form method="post">
         @csrf
         name:
@@ -90,6 +93,8 @@
 
         <input type="submit">
     </form>
+    @endif
 
     <a href="/config/user">Informações</a>
+ 
 @endsection
