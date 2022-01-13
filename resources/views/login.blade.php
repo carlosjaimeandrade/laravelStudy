@@ -24,8 +24,13 @@
         @csrf
         <input type="email" name="email" placeholder="digite seu e-mail">
         <input type="password" name="password" placeholder="Digite sua senha">
-
-        <input type="submit" value="entrar">
+        @if($tries<=3)
+            <input type="submit" value="entrar">
+        @else
+            maxima tentativa
+        @endif
     </form>
+
+    tentativas: {{$tries}}
 
 @endsection
