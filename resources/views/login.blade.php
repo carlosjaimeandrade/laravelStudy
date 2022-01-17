@@ -17,6 +17,8 @@
 </x-alert>
 @endif
 
+@lang('messages.test')
+
 
 @section('content')
 
@@ -27,7 +29,7 @@
         @if($tries<=3)
             <input type="submit" value="entrar">
         @else
-            maxima tentativa
+            @lang('messages.tryError',['count'=>3])
         @endif
     </form>
 

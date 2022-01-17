@@ -42,6 +42,11 @@ class LoginController extends Controller
 
     public function index(request $request){
         $tries = $request->session()->get('login_tries',0);
+        
+        //pegando mensagem que criamos
+        $frase = __('messages.test');
+        echo $frase;
+
 
         //deletando sessao
         /* $request->session()->forget('login_tries'); */
